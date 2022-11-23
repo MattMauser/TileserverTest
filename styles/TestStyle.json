@@ -1,0 +1,101 @@
+{
+  "version": 8,
+  "name": "TestStyle",
+  "metadata": {
+    "maputnik:renderer": "mbgljs"
+  },
+  "center": [-75.6623, 45.3759],
+  "zoom": 11,
+  "bearing": 0,
+  "pitch": 0,
+  "sources": {
+    "Vector XYZ Test": {
+      "type": "vector",
+      "tiles": ["http://localhost:8080/data/planet_osm_roads/{z}/{x}/{y}.pbf"],
+      "url": "mbtiles://planet_osm_roads.mbtiles",
+      "minZoom": 0,
+      "maxZoom": 15
+    }
+  },
+  "sprite": "",
+  "layers": [
+    {
+      "id": "Boundaries Background",
+      "type": "line",
+      "source": "Vector XYZ Test",
+      "source-layer": "planet_osm_roads",
+      "filter": ["any", ["has", "boundary"]],
+      "paint": {
+        "line-blur": 0,
+        "line-color": "rgba(193, 193, 193, 0.43)",
+        "line-width": 3
+      }
+    },
+    {
+      "id": "Boundaries",
+      "type": "line",
+      "source": "Vector XYZ Test",
+      "source-layer": "planet_osm_roads",
+      "filter": ["any", ["has", "boundary"]],
+      "paint": {
+        "line-blur": 2,
+        "line-color": "rgba(18, 18, 18, 1)",
+        "line-dasharray": [3, 3],
+        "line-width": 1
+      }
+    },
+    {
+      "id": "Rail Hatching",
+      "type": "line",
+      "source": "Vector XYZ Test",
+      "source-layer": "planet_osm_roads",
+      "filter": ["any", ["has", "railway"]],
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "line-color": "#bbb",
+        "line-dasharray": [0.2, 8],
+        "line-width": {"base": 1.4, "stops": [[14.5, 0], [15, 3], [20, 8]]}
+      }
+    },
+    {
+      "id": "Rail",
+      "type": "line",
+      "source": "Vector XYZ Test",
+      "source-layer": "planet_osm_roads",
+      "filter": ["any", ["has", "railway"]],
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "line-color": "#bbb",
+        "line-width": {"base": 1.4, "stops": [[14, 0.4], [15, 0.75], [20, 2]]}
+      }
+    },
+    {
+      "id": "Secondary Highways",
+      "type": "line",
+      "source": "Vector XYZ Test",
+      "source-layer": "planet_osm_roads",
+      "filter": ["all", ["==", "highway", "secondary"]],
+      "layout": {"line-cap": "round", "line-join": "round"},
+      "paint": {
+        "line-color": "#fea",
+        "line-width": {"base": 1.2, "stops": [[6.5, 0], [8, 0.5], [20, 13]]}
+      }
+    },
+    {
+      "id": "Primary Highways",
+      "type": "line",
+      "source": "Vector XYZ Test",
+      "source-layer": "planet_osm_roads",
+      "filter": ["all", ["==", "highway", "primary"]],
+      "layout": {"line-cap": "round", "line-join": "round"},
+      "paint": {
+        "line-color": {
+          "base": 1,
+          "stops": [[5, "hsl(26, 87%, 62%)"], [6, "#fc8"]]
+        },
+        "line-width": {"base": 1.2, "stops": [[5, 0], [7, 1], [20, 18]]}
+      }
+    }
+  ],
+  "id": "c4268e48-fac9-4478-8120-201224fbd4d8"
+}

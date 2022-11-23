@@ -1,0 +1,37 @@
+{
+    "options": {
+      "paths": {
+        "root": "",
+        "fonts": "glyphs",
+        "sprites": "sprites",
+        "styles": "styles",
+        "mbtiles": "data"
+      },
+      "formatEncoding": {
+        "png": 6,
+        "jpeg": 80,
+        "webp": 90
+      }
+    },
+    "styles": {
+      "TestStyle": {
+        "style": "TestStyle.json"
+      },
+      "EmptyTemplateForRaster": {
+        "style": "non-existant-file.json",
+        "tilejson": {
+          "type": "overlay",
+          "bounds": [8.529446, 47.364758, 8.55232, 47.380539]
+        }
+      }
+    },
+    "data": {
+      "planet_osm_roads": {
+        "mbtiles": "planet_osm_roads.mbtiles"
+      },
+      "zg_tiles": {
+        "mbtiles": "planet_osm_roads_zg.mbtiles"
+      }
+
+    }
+  }
